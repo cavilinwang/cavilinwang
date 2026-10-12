@@ -1,0 +1,10 @@
+{
+  "extraKnownMarketplaces": {
+    "youtube-agent-skill": {
+      "source": { "source": "github", "repo": "Jakeschincariol/youtube-agent-skill" }
+    }
+  },
+  "enabledPlugins": {
+    "youtube-agent@youtube-agent-skill": true
+  }
+}
