@@ -1,0 +1,27 @@
+{
+  "name": "Narrator (Ryan, high quality)",
+  "engine": "piper",
+  "model": "en_US-ryan-high",
+  "model_file": "~/.piper/models/en_US-ryan-high.onnx",
+  "install": "python -m piper.download_voices en_US-ryan-high",
+  "notes": "Free, offline, clear male US English voice. Used for the 'System Design: Six Problems' short. Needs the Piper package (pip install piper-tts) and, in the cloud sandbox, huggingface.co plus its download hosts (*.hf.co) allowed on the network. Set HF_HUB_DISABLE_XET=1 if a download fails.",
+  "settings": {
+    "length_scale": 0.9,
+    "sentence_silence": 0.22,
+    "speaker_id": 0
+  },
+  "mix": {
+    "narration_gain": 0.95,
+    "sfx_gain": 0.26,
+    "ambient_gain": 1.0,
+    "master": 0.82
+  },
+  "pronunciation_fixes": {
+    "idempotent": "eye-dem-poe-tent",
+    "idempotency": "eye-dem-poe-ten-see",
+    "CQRS": "C Q R S",
+    "WebSockets": "web sockets",
+    "backoff": "back off"
+  },
+  "fallbacks": ["en_US-hfc_male-medium", "en_US-lessac-medium"]
+}
