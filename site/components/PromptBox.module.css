@@ -1,0 +1,35 @@
+.wrap { width: min(680px, 100%); display: grid; gap: 1rem; position: relative; z-index: 1; }
+.box {
+  padding: 0.9rem 0.9rem 0.7rem 1.2rem; border-radius: 28px; text-align: left;
+  background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.22), 0 20px 50px -12px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.3);
+  transition: box-shadow 200ms var(--ease-out), transform 200ms var(--ease-out);
+}
+.box:focus-within { box-shadow: 0 0 0 1.5px rgba(255,255,255,0.6), 0 24px 60px -12px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.35); }
+.box[data-busy="true"] { animation: pulse 1.6s ease-in-out infinite; }
+.input {
+  width: 100%; resize: none; border: 0; outline: 0; background: transparent; color: inherit;
+  font: inherit; font-size: 1.1rem; line-height: 1.5; padding: 0.4rem 0; max-height: 220px;
+}
+.input::placeholder { color: rgba(255,255,255,0.6); }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 0.4rem; }
+.hint { font-size: 0.8rem; opacity: 0.65; }
+.send {
+  width: 40px; height: 40px; border-radius: 50%; border: 0; display: grid; place-items: center; cursor: pointer;
+  background: #fff; color: #111; transition: transform 160ms var(--ease-out), opacity 160ms;
+}
+.send::after { content: ""; position: absolute; inset: -4px; } /* larger hit area */
+.send { position: relative; }
+.send:active:not(:disabled) { transform: scale(0.94); }
+.send:disabled { opacity: 0.35; cursor: not-allowed; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+.chip {
+  border: 0; cursor: pointer; color: inherit; font: inherit; font-size: 0.9rem; padding: 0.5rem 0.95rem; border-radius: 999px;
+  background: rgba(255,255,255,0.1); box-shadow: 0 0 0 1px rgba(255,255,255,0.18);
+  transition: background 160ms, transform 160ms var(--ease-out);
+}
+@media (hover: hover) { .chip:hover { background: rgba(255,255,255,0.2); } }
+.chip:active { transform: scale(0.97); }
+@keyframes pulse { 50% { box-shadow: 0 0 0 1.5px rgba(160,140,255,0.9), 0 0 40px 4px rgba(120,90,255,0.45), inset 0 1px 0 rgba(255,255,255,0.3); } }
+@media (prefers-reduced-motion: reduce) { .box[data-busy="true"] { animation: none; } .box, .chip, .send { transition: none; } }

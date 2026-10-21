@@ -2,6 +2,7 @@
 import dynamic from "next/dynamic";
 import GlassCard from "@/components/GlassCard";
 import Reveal from "@/components/Reveal";
+import PromptBox from "@/components/PromptBox";
 
 // WebGL components must not render on the server.
 const GradientHero = dynamic(() => import("@/components/GradientHero"), { ssr: false });
@@ -18,6 +19,13 @@ export default function Home() {
             <p>Shader gradient behind, liquid glass in front. Replace this copy.</p>
             <button className="btn">Get started</button>
           </GlassCard>
+        </div>
+      </section>
+      <section>
+        <GradientHero />
+        <div className="content">
+          <h2>Ask anything</h2>
+          <PromptBox />
         </div>
       </section>
       <section>
